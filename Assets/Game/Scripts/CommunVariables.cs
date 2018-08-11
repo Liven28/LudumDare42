@@ -27,6 +27,8 @@ public class CommunVariables : MonoBehaviour
 
     public bool Victory;
 
+    public bool mvt;
+
 
     void Awake ()
     {

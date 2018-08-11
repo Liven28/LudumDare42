@@ -6,6 +6,20 @@ public class ControlPlayer : MonoBehaviour
 {
     [SerializeField] private float speed;
 
+    [SerializeField] private float speedUp;
+    [SerializeField] private float speedDown;
+    [SerializeField] private float speedSides;
+
+    [SerializeField] private float timerUpAction;
+    [SerializeField] private float timerDownAction;
+    [SerializeField] private float timerLeftAction;
+    [SerializeField] private float timerRightAction;
+
+    private float timerUpActionCount;
+    private float timerDownActionCount;
+    private float timerLeftActionCount;
+    private float timerRightActionCount;
+
     private Vector2 vect2Up = new Vector2(0, 1);
     private Vector2 vect2Down = new Vector2(0, -1);
     private Vector2 vect2Left = new Vector2(-1, 0);
@@ -49,7 +63,26 @@ public class ControlPlayer : MonoBehaviour
 
 
     void Update()
-    {
+    {/*
+        float deltaTime = Time.deltaTime;
+        timerUpActionCount -= deltaTime;
+        timerDownActionCount -= deltaTime;
+        timerLeftActionCount -= deltaTime;
+        timerRightActionCount -= deltaTime;
+        if (timerUpActionCount < 0.0f)
+            timerUpActionCount = 0.0f;
+        if (timerDownActionCount < 0.0f)
+            timerDownActionCount = 0.0f;
+        if (timerLeftActionCount < 0.0f)
+            timerLeftActionCount = 0.0f;
+        if (timerRightActionCount < 0.0f)
+            timerRightActionCount = 0.0f;*/
+
+        timerUpActionCount = 0.0f;
+        timerDownActionCount = 0.0f;
+        timerLeftActionCount = 0.0f;
+        timerRightActionCount = 0.0f;
+
         //if (scrPlayerData.playerNumber == scrCommunVariables.currentPlayerNumber)
         {
             if (playerActivated == false)
@@ -64,35 +97,51 @@ public class ControlPlayer : MonoBehaviour
 
             if (scrCommunVariables.rightHand == true)
             {
-                if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.Q) || Input.GetKey(KeyCode.A))
+                if (timerLeftActionCount == 0.0f && (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.Q) || Input.GetKey(KeyCode.A)))
                 {
-                    vect2Key = vect2Left;
+                    vect2Key = vect2Left * speedSides;
+                    timerLeftActionCount = timerLeftAction;
                 }
-                if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
+                if (timerRightActionCount == 0.0f && (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D)))
                 {
-                    vect2Key = new Vector2(vect2Key.x + vect2Right.x, vect2Key.y);
+                    vect2Key = new Vector2(vect2Key.x + vect2Right.x * speedSides, vect2Key.y);
+                    timerRightActionCount = timerRightAction;
                 }
-                if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.Z) || Input.GetKey(KeyCode.W))
+                if (timerUpActionCount == 0.0f && (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.Z) || Input.GetKey(KeyCode.W)))
                 {
-                    vect2Key = new Vector2(vect2Key.x, vect2Up.y);
+                    vect2Key = new Vector2(vect2Key.x, vect2Up.y * speedUp);
+                    timerUpActionCount = timerUpAction;
                 }
-                if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
+                if (timerDownActionCount == 0.0f && (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S)))
                 {
-                    vect2Key = new Vector2(vect2Key.x, vect2Key.y + vect2Down.y);
+                    vect2Key = new Vector2(vect2Key.x, vect2Key.y + vect2Down.y * speedDown);
+                    timerDownActionCount = timerDownAction;
                 }
 
                 if (vect2Key != Vector2.zero)
                 {
+                    rigid2d.velocity = Vector2.zero;
+
                     vect2Key = vect2Key.normalized;
-                    rigid2d.AddForce(vect2Key * speed * delta);
+                    rigid2d.AddForce(vect2Key * speed);
+                    scrCommunVariables.mvt = true;
+                    rendSpriteRenderer.color = inactiveColor;
+
+                    Debug.LogError("key : " + vect2Key + "speed : " + speed);
                 }
                 else
                 {
+                    rendSpriteRenderer.color = activeColor;
+
                     vect2Pad = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
                     if (vect2Pad != Vector2.zero)
                     {
+                        rigid2d.velocity = Vector2.zero;
+
                         vect2Pad = vect2Pad.normalized;
-                        rigid2d.AddForce(vect2Pad * speed * delta);
+                        rigid2d.AddForce(vect2Pad * speed);
+                        Debug.LogError("key : " + vect2Pad + "speed : " + speed);
+
                     }
                 }
             }
@@ -143,5 +192,13 @@ public class ControlPlayer : MonoBehaviour
                 rigid2d.isKinematic = true;
             }*/
         }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        timerUpActionCount = 0.0f;
+        timerDownActionCount = 0.0f;
+        timerLeftActionCount = 0.0f;
+        timerRightActionCount = 0.0f;
     }
 }
