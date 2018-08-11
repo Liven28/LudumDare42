@@ -36,7 +36,7 @@ public class PlayerCollision : MonoBehaviour
     }
 
     private void Update()
-    {
+    {/*
         DelayOfCollisionCurrent += Time.deltaTime;
         if (DelayOfCollisionCurrent > DelayOfCollisionAllowed)
         {
@@ -45,10 +45,10 @@ public class PlayerCollision : MonoBehaviour
         }
 
         if (numberOfCollisionCurrent > numberOfCollisionAllowed)
-            scrPlayerData.playerDead = true;
+            scrPlayerData.playerDead = true;*/
     }
 
-
+    /*
     private void OnCollisionEnter2D(Collision2D collision2D)
     {
         if (scrPlayerData.playerNumber != scrCommunVariables.currentPlayerNumber)
@@ -173,5 +173,10 @@ public class PlayerCollision : MonoBehaviour
             if (scrIdentifyObjects.connectedToWall04)
                 contactWall04 = false;
         }
+    }*/
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+       // if (collision.gameObject.tag ==
     }
 }

@@ -10,6 +10,7 @@ TagManager:
   - Wall03
   - Wall04
   - Wall
+  - Trigger
   layers:
   - Default
   - TransparentFX
@@ -22,7 +23,7 @@ TagManager:
   - Player
   - Trash
   - Wall
-  - 
+  - Trigger
   - 
   - 
   - 

@@ -50,7 +50,7 @@ public class ControlPlayer : MonoBehaviour
 
     void Update()
     {
-        if (scrPlayerData.playerNumber == scrCommunVariables.currentPlayerNumber)
+        //if (scrPlayerData.playerNumber == scrCommunVariables.currentPlayerNumber)
         {
             if (playerActivated == false)
             {
@@ -64,19 +64,19 @@ public class ControlPlayer : MonoBehaviour
 
             if (scrCommunVariables.rightHand == true)
             {
-                if (Input.GetKey(KeyCode.LeftArrow))
+                if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.Q) || Input.GetKey(KeyCode.A))
                 {
                     vect2Key = vect2Left;
                 }
-                if (Input.GetKey(KeyCode.RightArrow))
+                if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
                 {
                     vect2Key = new Vector2(vect2Key.x + vect2Right.x, vect2Key.y);
                 }
-                if (Input.GetKey(KeyCode.UpArrow))
+                if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.Z) || Input.GetKey(KeyCode.W))
                 {
                     vect2Key = new Vector2(vect2Key.x, vect2Up.y);
                 }
-                if (Input.GetKey(KeyCode.DownArrow))
+                if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
                 {
                     vect2Key = new Vector2(vect2Key.x, vect2Key.y + vect2Down.y);
                 }
@@ -96,7 +96,7 @@ public class ControlPlayer : MonoBehaviour
                     }
                 }
             }
-            else
+            /*else
             {
                 if (Input.GetKey(KeyCode.Q) || Input.GetKey(KeyCode.A))
                 {
@@ -130,7 +130,7 @@ public class ControlPlayer : MonoBehaviour
                     }
                 }
             }
-        }
+        }*//*
         else 
         {
             if (playerActivated == true || onShot == false)
@@ -141,7 +141,7 @@ public class ControlPlayer : MonoBehaviour
                 rigid2d.velocity = Vector2.zero;
                 rigid2d.angularVelocity = 0;
                 rigid2d.isKinematic = true;
-            }
+            }*/
         }
     }
 }

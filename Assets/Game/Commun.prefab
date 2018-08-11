@@ -52,9 +52,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentPlayerNumber: 1
+  Player01Dead: 0
+  Player02Dead: 0
+  Player03Dead: 0
   rightHand: 1
   inMenu: 0
   gameRunnig: 0
   continu: 0
   play: 0
   gameWaitToRestart: 0
+  End: 0
+  End01: 0
+  End02: 0
+  End03: 0
+  End04: 0
+  Victory: 0

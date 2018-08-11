@@ -37,10 +37,31 @@ public class WallMvt : MonoBehaviour
     private Transform wallTransform;
     private Rigidbody2D rigbodyWall;
 
+    [SerializeField] private int numWall;
+
+    [SerializeField] private float checkpositionDistance;
+    [SerializeField] private float checkPositionDelay;
+    private float checkPositionCount;
+
+    private Vector2 wallPosition;
+    private Vector2 wallPositionOld;
+    private float Distance;
+
+    private GameObject Commun;
+    private CommunVariables scrCommunVariables;
+
+
     void Awake ()
     {
+        Commun = GameObject.Find("Commun");
+        scrCommunVariables = Commun.GetComponent<CommunVariables>();
+
         wallTransform = GetComponent<Transform>();
         rigbodyWall = GetComponent<Rigidbody2D>();
+
+        checkPositionCount = checkPositionDelay;
+
+        wallPosition = wallPositionOld = wallTransform.position;
     }
 
     void Update ()
@@ -56,6 +77,27 @@ public class WallMvt : MonoBehaviour
                 wallMvtPos = wallMvtCurve.Evaluate(wallcurvePos);
                 wallTransform.position = Vector3.Lerp(startPosition, endPosition, wallMvtPos);
             }
+        }
+
+        checkPositionCount -= Time.deltaTime;
+        if (checkPositionCount < 0.0f)
+        {
+            checkPositionCount = checkPositionDelay;
+            wallPosition = wallTransform.position;
+            Distance = Mathf.Abs(wallPosition.x - wallPositionOld.x) + Mathf.Abs(wallPosition.y - wallPositionOld.y);
+            if (Distance > checkpositionDistance)
+            {
+                if (numWall == 1)
+                    scrCommunVariables.End01 = true;
+                else if (numWall == 2)
+                    scrCommunVariables.End02 = true;
+                else if (numWall == 3)
+                    scrCommunVariables.End03 = true;
+                else if (numWall == 4)
+                    scrCommunVariables.End04 = true;
+            }
+
+            wallPositionOld = wallPosition;
         }
     }
 

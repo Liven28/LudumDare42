@@ -19,15 +19,26 @@ public class CommunVariables : MonoBehaviour
     public bool play;
     public bool gameWaitToRestart;
 
+    public bool End;
+    public bool End01;
+    public bool End02;
+    public bool End03;
+    public bool End04;
 
-    void Awake
-        ()
+    public bool Victory;
+
+
+    void Awake ()
     {
 		
 	}
 	
 	void Update ()
     {
-		
+		if (End01 && End02 && End03 && End04)
+        {
+            End = true;
+            End01 = End02 = End03 = End04 = false;
+        }
 	}
 }

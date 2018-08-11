@@ -30,10 +30,10 @@ public class PlayerSelection : MonoBehaviour
         {
             if (scrCommunVariables.rightHand == false)
             {
-                if (Input.GetKey(KeyCode.LeftArrow))
+                if (Input.GetKey(KeyCode.LeftArrow) || Input.GetButtonDown("joystick button 0"))
                     DecreasePlayerNumber();
 
-                if (Input.GetKey(KeyCode.RightArrow))
+                if (Input.GetKey(KeyCode.RightArrow) || Input.GetButtonDown("joystick button 1"))
                     IncreasePlayerNumber();
                 
                 if (Input.GetKey(KeyCode.UpArrow))
@@ -47,10 +47,10 @@ public class PlayerSelection : MonoBehaviour
             }
             else
             {
-                if (Input.GetKey(KeyCode.Q) || Input.GetKey(KeyCode.A))
+                if (Input.GetKey(KeyCode.Q) || Input.GetKey(KeyCode.A) || Input.GetButtonDown("joystick button 0"))
                     DecreasePlayerNumber();
 
-                if (Input.GetKey(KeyCode.D))
+                if (Input.GetKey(KeyCode.D) || Input.GetButtonDown("joystick button 1"))
                     IncreasePlayerNumber();
 
                 if (Input.GetKey(KeyCode.Z) || Input.GetKey(KeyCode.W))
@@ -101,7 +101,7 @@ public class PlayerSelection : MonoBehaviour
                 break;
             }
             i++;
-            if (i == 3)
+            if (i == 2)
             {
                 PlayerFound = true;
                 break;

@@ -13,35 +13,103 @@ public class IdentifyObjects : MonoBehaviour
 
     private IdentifyObjects scrIdentifyObjects;
 
-    void Awake ()
-    {
-		
-	}
 	
 
     private void OnCollisionEnter2D(Collision2D collision2D)
     {
         tagObject = collision2D.gameObject.tag;
         if (tagObject == "Wall01")
-            connectedToWall01 = true;
+        {
+            if (connectedToWall02 == false)
+            {
+                connectedToWall01 = true;
+            }
+            else
+            {
+                connectedToWall01 = false;
+                connectedToWall02 = false;
+            }
+        }
         else if (tagObject == "Wall02")
-            connectedToWall02 = true;
+        {
+            if (connectedToWall01 == false)
+            {
+                connectedToWall02 = true;
+            }
+            else
+            {
+                connectedToWall01 = false;
+                connectedToWall02 = false;
+            }
+        }
         else if (tagObject == "Wall03")
-            connectedToWall03 = true;
+        {
+            if (connectedToWall04 == false)
+            {
+                connectedToWall03 = true;
+            }
+            else
+            {
+                connectedToWall03 = false;
+                connectedToWall04 = false;
+            }
+        }
         else if (tagObject == "Wall04")
-            connectedToWall04 = true;
+        {
+            if (connectedToWall03 == false)
+            {
+                connectedToWall04 = true;
+            }
+            else
+            {
+                connectedToWall03 = false;
+                connectedToWall04 = false;
+            }
+        }
         else if (tagObject == "Player" || tagObject == "Trash")
         {
             scrIdentifyObjects = collision2D.gameObject.GetComponent<IdentifyObjects>();
 
             if (scrIdentifyObjects.connectedToWall01)
-                connectedToWall01 = true;
+                if (connectedToWall02 == false)
+                {
+                    connectedToWall01 = true;
+                }
+                else
+                {
+                    connectedToWall01 = false;
+                    connectedToWall02 = false;
+                }
             if (scrIdentifyObjects.connectedToWall02)
-                connectedToWall02 = true;
+                if (connectedToWall01 == false)
+                {
+                    connectedToWall02 = true;
+                }
+                else
+                {
+                    connectedToWall01 = false;
+                    connectedToWall02 = false;
+                }
             if (scrIdentifyObjects.connectedToWall03)
-                connectedToWall03 = true;
+                if (connectedToWall04 == false)
+                {
+                    connectedToWall03 = true;
+                }
+                else
+                {
+                    connectedToWall03 = false;
+                    connectedToWall04 = false;
+                }
             if (scrIdentifyObjects.connectedToWall04)
-                connectedToWall04 = true;
+                if (connectedToWall03 == false)
+                {
+                    connectedToWall04 = true;
+                }
+                else
+                {
+                    connectedToWall03 = false;
+                    connectedToWall04 = false;
+                }
         }
     }
 
@@ -57,7 +125,7 @@ public class IdentifyObjects : MonoBehaviour
             connectedToWall03 = false;
         else if (tagObject == "Wall04")
             connectedToWall04 = false;
-        else if (tagObject == "Player" || tagObject == "Player")
+        else if (tagObject == "Player" || tagObject == "Trash")
         {
             scrIdentifyObjects = collision2D.gameObject.GetComponent<IdentifyObjects>();
 

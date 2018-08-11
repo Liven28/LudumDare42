@@ -45,4 +45,6 @@ public class PlayerDeath : MonoBehaviour
                 scrCommunVariables.Player03Dead = true;
         }
     }
+
+
 }
