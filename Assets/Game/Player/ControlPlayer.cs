@@ -35,6 +35,8 @@ public class ControlPlayer : MonoBehaviour
 
     private bool playerActivated;
 
+    private bool onShot;
+
     void Awake()
     {
         rigid2d = GetComponent<Rigidbody2D>();
@@ -132,8 +134,9 @@ public class ControlPlayer : MonoBehaviour
         }
         else
         {
-            if (playerActivated == true)
+            if (playerActivated == true || onShot == false)
             {
+                onShot = true;
                 playerActivated = false;
                 rigid2d.isKinematic = true;
                 rendSpriteRenderer.color = inactiveColor;

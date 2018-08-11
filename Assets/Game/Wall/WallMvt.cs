@@ -5,15 +5,31 @@ using UnityEngine;
 public class WallMvt : MonoBehaviour
 {
     [SerializeField] private Vector3 startPosition;
+    [SerializeField] private Vector3 endPosition;
 
+    [SerializeField] private AnimationCurve wallMvtCurve;
+    [SerializeField] private float wallMvtspeed;
 
-	void Awake ()
+    private float wallcurvePos;
+    private float wallMvtPos;
+
+    private Transform wallTransform;
+
+    void Awake ()
     {
-		
-	}
-	
-	void Update ()
+        wallTransform = GetComponent<Transform>();
+    }
+
+    void Update ()
     {
-		
-	}
+        if (wallcurvePos < 1.0f)
+        {
+            wallcurvePos += wallMvtspeed * Time.deltaTime;
+            if (wallcurvePos > 1.0f)
+                wallcurvePos = 1.0f;
+
+            wallMvtPos = wallMvtCurve.Evaluate(wallcurvePos);
+            wallTransform.position = Vector3.Lerp(startPosition, endPosition, wallMvtPos);
+        }
+    }
 }

@@ -15,6 +15,8 @@ public class PlayerSelection : MonoBehaviour
     private GameObject Commun;
     private CommunVariables scrCommunVariables;
 
+    [SerializeField] private float playerSelectionDelay;
+    private float playerSelectionDelayCount;
 
     void Awake ()
     {
@@ -24,71 +26,68 @@ public class PlayerSelection : MonoBehaviour
 	
 	void Update ()
     {
-        if (scrCommunVariables.rightHand == true)
+        if (playerSelectionDelayCount == 0.0f)
         {
-            if (Input.GetKey(KeyCode.LeftArrow))
+            if (scrCommunVariables.rightHand == false)
             {
-                if (scrCommunVariables.currentPlayerNumber > 1)
-                {
-                    scrCommunVariables.currentPlayerNumber--;
-                }
-                else
-                {
-                    scrCommunVariables.currentPlayerNumber = 3;
-                }
-            }
-            if (Input.GetKey(KeyCode.RightArrow))
-            {
-                if (scrCommunVariables.currentPlayerNumber < 3)
-                {
-                    scrCommunVariables.currentPlayerNumber++;
-                }
-                else
-                {
-                    scrCommunVariables.currentPlayerNumber = 1;
-                }
-            }
-            if (Input.GetKey(KeyCode.UpArrow))
-            {
+                if (Input.GetKey(KeyCode.LeftArrow))
+                    DecreasePlayerNumber();
 
-            }
-            if (Input.GetKey(KeyCode.DownArrow))
-            {
+                if (Input.GetKey(KeyCode.RightArrow))
+                    IncreasePlayerNumber();
+                
+                if (Input.GetKey(KeyCode.UpArrow))
+                {
 
+                }
+                if (Input.GetKey(KeyCode.DownArrow))
+                {
+
+                }
+            }
+            else
+            {
+                if (Input.GetKey(KeyCode.Q) || Input.GetKey(KeyCode.A))
+                    DecreasePlayerNumber();
+
+                if (Input.GetKey(KeyCode.D))
+                    IncreasePlayerNumber();
+
+                if (Input.GetKey(KeyCode.Z) || Input.GetKey(KeyCode.W))
+                {
+
+                }
+                if (Input.GetKey(KeyCode.S))
+                {
+
+                }
             }
         }
         else
         {
-            if (Input.GetKey(KeyCode.Q) || Input.GetKey(KeyCode.A))
-            {
-                if (scrCommunVariables.currentPlayerNumber > 1)
-                {
-                    scrCommunVariables.currentPlayerNumber--;
-                }
-                else
-                {
-                    scrCommunVariables.currentPlayerNumber = 3;
-                }
-            }
-            if (Input.GetKey(KeyCode.D))
-            {
-                if (scrCommunVariables.currentPlayerNumber < 3)
-                {
-                    scrCommunVariables.currentPlayerNumber++;
-                }
-                else
-                {
-                    scrCommunVariables.currentPlayerNumber = 1;
-                }
-            }
-            if (Input.GetKey(KeyCode.Z) || Input.GetKey(KeyCode.W))
-            {
-
-            }
-            if (Input.GetKey(KeyCode.S))
-            {
-
-            }
+            playerSelectionDelayCount -= Time.deltaTime;
+            if (playerSelectionDelayCount < 0.0f)
+                playerSelectionDelayCount = 0.0f;
         }
+    }
+
+    private void IncreasePlayerNumber()
+    {
+        playerSelectionDelayCount = playerSelectionDelay;
+
+        if (scrCommunVariables.currentPlayerNumber < 3)
+            scrCommunVariables.currentPlayerNumber++;
+        else
+            scrCommunVariables.currentPlayerNumber = 1;
+    }
+
+    private void DecreasePlayerNumber()
+    {
+        playerSelectionDelayCount = playerSelectionDelay;
+
+        if (scrCommunVariables.currentPlayerNumber > 1)
+            scrCommunVariables.currentPlayerNumber--;
+        else
+            scrCommunVariables.currentPlayerNumber = 3;
     }
 }

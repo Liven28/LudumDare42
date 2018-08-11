@@ -53,3 +53,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentPlayerNumber: 1
   rightHand: 1
+  inMenu: 0
+  gameRunnig: 0
+  continu: 0
+  play: 0
+  gameWaitToRestart: 0
