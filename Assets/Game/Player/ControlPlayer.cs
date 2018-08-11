@@ -127,7 +127,6 @@ public class ControlPlayer : MonoBehaviour
                     scrCommunVariables.mvt = true;
                     rendSpriteRenderer.color = inactiveColor;
 
-                    Debug.LogError("key : " + vect2Key + "speed : " + speed);
                 }
                 else
                 {
@@ -140,8 +139,6 @@ public class ControlPlayer : MonoBehaviour
 
                         vect2Pad = vect2Pad.normalized;
                         rigid2d.AddForce(vect2Pad * speed);
-                        Debug.LogError("key : " + vect2Pad + "speed : " + speed);
-
                     }
                 }
             }
