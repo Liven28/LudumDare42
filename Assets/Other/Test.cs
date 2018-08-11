@@ -2,15 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Test : MonoBehaviour {
+public class Test : MonoBehaviour
+{
+    private GameObject Commun;
+    private CommunVariables scrCommunVariables;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
+
+    void Awake ()
+    {
+        Commun = GameObject.Find("Commun");
+        scrCommunVariables = Commun.GetComponent<CommunVariables>();
+    }
+
+
+
+    void Update ()
+    {
 		
 	}
 }
