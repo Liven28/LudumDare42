@@ -24,9 +24,9 @@ GameObject:
   - component: {fileID: 114398159423574626}
   - component: {fileID: 50058253422371100}
   - component: {fileID: 61467847600205426}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Chub
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -44,9 +44,9 @@ GameObject:
   - component: {fileID: 114859916921652478}
   - component: {fileID: 50686058235034600}
   - component: {fileID: 61280257247589174}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Leia
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -80,9 +80,9 @@ GameObject:
   - component: {fileID: 114660984044997670}
   - component: {fileID: 50072192224483148}
   - component: {fileID: 61877356756594874}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Trooper
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

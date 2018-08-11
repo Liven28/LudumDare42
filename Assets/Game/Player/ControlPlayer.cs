@@ -22,7 +22,6 @@ public class ControlPlayer : MonoBehaviour
     private bool gravityDesactivated;
 
     private Rigidbody2D rigid2d;
-
     private SpriteRenderer rendSpriteRenderer;
 
     private float delta;
@@ -132,14 +131,16 @@ public class ControlPlayer : MonoBehaviour
                 }
             }
         }
-        else
+        else 
         {
             if (playerActivated == true || onShot == false)
             {
                 onShot = true;
                 playerActivated = false;
-                rigid2d.isKinematic = true;
                 rendSpriteRenderer.color = inactiveColor;
+                rigid2d.velocity = Vector2.zero;
+                rigid2d.angularVelocity = 0;
+                rigid2d.isKinematic = true;
             }
         }
     }

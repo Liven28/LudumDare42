@@ -479,19 +479,19 @@ Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1266637983344212}
-  m_BodyType: 2
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
+  m_Mass: 10
+  m_LinearDrag: 1
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 6200000, guid: 681c952fac45c6a4aa3a744910979f44, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!50 &50263930997917166
 Rigidbody2D:
   serializedVersion: 4
@@ -499,19 +499,19 @@ Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1091279824192708}
-  m_BodyType: 2
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
+  m_Mass: 10
+  m_LinearDrag: 1
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 6200000, guid: 681c952fac45c6a4aa3a744910979f44, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!50 &50350552119889498
 Rigidbody2D:
   serializedVersion: 4
@@ -559,19 +559,19 @@ Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1921338739163084}
-  m_BodyType: 2
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
+  m_Mass: 10
+  m_LinearDrag: 1
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 6200000, guid: 681c952fac45c6a4aa3a744910979f44, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!50 &50465437034173440
 Rigidbody2D:
   serializedVersion: 4
@@ -599,19 +599,19 @@ Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1868568540548932}
-  m_BodyType: 2
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
+  m_Mass: 10
+  m_LinearDrag: 1
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 6200000, guid: 681c952fac45c6a4aa3a744910979f44, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!50 &50863901861159472
 Rigidbody2D:
   serializedVersion: 4
@@ -970,6 +970,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54c71bf269e56b946ad4c1b675fb0f56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  useForce: 0
+  forceIntensity: 0
+  forceIntensityUp: 0
+  forceIntensityDown: 0
+  forceIntensityLeft: 0
+  forceIntensityRight: 0
   startPosition: {x: 0, y: 0, z: 0}
   endPosition: {x: 0, y: 0, z: 0}
   wallMvtCurve:
@@ -990,6 +996,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54c71bf269e56b946ad4c1b675fb0f56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  useForce: 1
+  forceIntensity: 1
+  forceIntensityUp: 0
+  forceIntensityDown: 1
+  forceIntensityLeft: 0
+  forceIntensityRight: 0
   startPosition: {x: 0, y: 0.5, z: 0}
   endPosition: {x: 0, y: 3, z: 0}
   wallMvtCurve:
@@ -1028,6 +1040,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54c71bf269e56b946ad4c1b675fb0f56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  useForce: 0
+  forceIntensity: 0
+  forceIntensityUp: 0
+  forceIntensityDown: 0
+  forceIntensityLeft: 0
+  forceIntensityRight: 0
   startPosition: {x: 0, y: 0, z: 0}
   endPosition: {x: 0, y: 0, z: 0}
   wallMvtCurve:
@@ -1048,6 +1066,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54c71bf269e56b946ad4c1b675fb0f56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  useForce: 1
+  forceIntensity: 1
+  forceIntensityUp: 1
+  forceIntensityDown: 0
+  forceIntensityLeft: 0
+  forceIntensityRight: 0
   startPosition: {x: 0, y: 1.5, z: 0}
   endPosition: {x: 0, y: -2, z: 0}
   wallMvtCurve:
@@ -1086,6 +1110,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54c71bf269e56b946ad4c1b675fb0f56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  useForce: 0
+  forceIntensity: 0
+  forceIntensityUp: 0
+  forceIntensityDown: 0
+  forceIntensityLeft: 0
+  forceIntensityRight: 0
   startPosition: {x: 0, y: 0, z: 0}
   endPosition: {x: 0, y: 0, z: 0}
   wallMvtCurve:
@@ -1106,6 +1136,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54c71bf269e56b946ad4c1b675fb0f56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  useForce: 1
+  forceIntensity: 1
+  forceIntensityUp: 0
+  forceIntensityDown: 0
+  forceIntensityLeft: 1
+  forceIntensityRight: 0
   startPosition: {x: 0.5, y: 0, z: 0}
   endPosition: {x: 6, y: 0, z: 0}
   wallMvtCurve:
@@ -1144,6 +1180,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54c71bf269e56b946ad4c1b675fb0f56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  useForce: 0
+  forceIntensity: 0
+  forceIntensityUp: 0
+  forceIntensityDown: 0
+  forceIntensityLeft: 0
+  forceIntensityRight: 0
   startPosition: {x: 0, y: 0, z: 0}
   endPosition: {x: 0, y: 0, z: 0}
   wallMvtCurve:
@@ -1164,6 +1206,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54c71bf269e56b946ad4c1b675fb0f56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  useForce: 1
+  forceIntensity: 1
+  forceIntensityUp: 0
+  forceIntensityDown: 0
+  forceIntensityLeft: 0
+  forceIntensityRight: 1
   startPosition: {x: 0.5, y: 0, z: 0}
   endPosition: {x: -6.5, y: 0, z: 0}
   wallMvtCurve:
