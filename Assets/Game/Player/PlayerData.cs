@@ -5,14 +5,6 @@ using UnityEngine;
 public class PlayerData : MonoBehaviour
 {
     public int playerNumber;
+    public bool playerDead;
 
-    void Awake ()
-    {
-		
-	}
-	
-	void Update ()
-    {
-		
-	}
 }

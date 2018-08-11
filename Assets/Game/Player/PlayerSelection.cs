@@ -75,19 +75,75 @@ public class PlayerSelection : MonoBehaviour
     {
         playerSelectionDelayCount = playerSelectionDelay;
 
-        if (scrCommunVariables.currentPlayerNumber < 3)
-            scrCommunVariables.currentPlayerNumber++;
-        else
-            scrCommunVariables.currentPlayerNumber = 1;
+        bool PlayerFound = false;
+        int i = 0;
+
+        while (PlayerFound == false)
+        {
+            if (scrCommunVariables.currentPlayerNumber < 3)
+                scrCommunVariables.currentPlayerNumber++;
+            else
+                scrCommunVariables.currentPlayerNumber = 1;
+
+            if (scrCommunVariables.currentPlayerNumber == 1 && scrCommunVariables.Player01Dead == false)
+            {
+                PlayerFound = true;
+                break;
+            }
+            else if (scrCommunVariables.currentPlayerNumber == 2 && scrCommunVariables.Player02Dead == false)
+            {
+                PlayerFound = true;
+                break;
+            }
+            else if (scrCommunVariables.currentPlayerNumber == 3 && scrCommunVariables.Player03Dead == false)
+            {
+                PlayerFound = true;
+                break;
+            }
+            i++;
+            if (i == 3)
+            {
+                PlayerFound = true;
+                break;
+            }
+        }     
     }
 
     private void DecreasePlayerNumber()
-    {
+    {        
         playerSelectionDelayCount = playerSelectionDelay;
 
-        if (scrCommunVariables.currentPlayerNumber > 1)
-            scrCommunVariables.currentPlayerNumber--;
-        else
-            scrCommunVariables.currentPlayerNumber = 3;
+        bool PlayerFound = false;
+        int i = 0;
+
+        while (PlayerFound == false)
+        {
+            if (scrCommunVariables.currentPlayerNumber > 1)
+                scrCommunVariables.currentPlayerNumber--;
+            else
+                scrCommunVariables.currentPlayerNumber = 3;
+
+            if (scrCommunVariables.currentPlayerNumber == 1 && scrCommunVariables.Player01Dead == false)
+            {
+                PlayerFound = true;
+                break;
+            }
+            else if (scrCommunVariables.currentPlayerNumber == 2 && scrCommunVariables.Player02Dead == false)
+            {
+                PlayerFound = true;
+                break;
+            }
+            else if (scrCommunVariables.currentPlayerNumber == 3 && scrCommunVariables.Player03Dead == false)
+            {
+                PlayerFound = true;
+                break;
+            }
+            i++;
+            if (i == 3)
+            {
+                PlayerFound = true;
+                break;
+            }
+        }
     }
 }

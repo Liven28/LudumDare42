@@ -5,6 +5,11 @@ using UnityEngine;
 public class CommunVariables : MonoBehaviour
 {
     public int currentPlayerNumber;
+
+    public bool Player01Dead;
+    public bool Player02Dead;
+    public bool Player03Dead;
+
     public bool rightHand;
     public bool inMenu;
 
