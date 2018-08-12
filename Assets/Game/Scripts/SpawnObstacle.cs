@@ -11,16 +11,12 @@ public class SpawnObstacle : MonoBehaviour
     [SerializeField] private float sizeMaxi;
 
     private float Rotation;
-
-
+    
     [SerializeField] private AnimationCurve[] curveSiseMini;
     [SerializeField] private AnimationCurve[] curveSiseMaxi;
 
     [SerializeField] private AnimationCurve[] curveGravityMini;
     [SerializeField] private AnimationCurve[] curveGravityMaxi;
-
-    //[SerializeField] private AnimationCurve[] curveSiseMini;
-    //[SerializeField] private AnimationCurve[] curveSiseMini;
 
     [SerializeField] private float SpawnLimitesLeft;
     [SerializeField] private float SpawnLimitesDownRight;
@@ -34,21 +30,27 @@ public class SpawnObstacle : MonoBehaviour
     private float posPlayerY;
     private Vector3 posSpawn;
     private Quaternion quatSpawn;
-    private int NumObstacleToSpawn;
-
-    private int currentCurve;
-    private float posCurve;
-    private float timerSpawn;
-    [SerializeField] private float globalSpeedSpawn;
-    [SerializeField] private float[] tabSpeedSpawn;
-    [SerializeField] private AnimationCurve[] tabCurveSpeedSpawn;
 
     [SerializeField] private float DespawnDistance;
     private bool isActive;
     [SerializeField] private float CheckDistanceDelay;
     private float CheckDistanceCount;
-
     private float playerDistance;
+
+    [SerializeField] private AnimationCurve[] tabCurveSpeedSpawn;
+
+    [SerializeField] private float[] tabSpeedSpawn;
+    [SerializeField] private float globalSpeedSpawn;
+
+    [SerializeField] private float[] tabQuatitySpawn;
+    [SerializeField] private float globalQuantitySpawn;
+
+    private int NumObstacleToSpawn;
+
+    private int currentCurve;
+    private float posCurve;
+    private float spawnRate;
+    private float spawnTimer;
 
 
     void Awake ()
@@ -79,7 +81,6 @@ public class SpawnObstacle : MonoBehaviour
                 {
                     playerDistance = posPlayerY - tabObstacles[i].transform.position.y;
 
-                    //playerDistance = posPlayer.y - tabObstacles[i].transform.position.y;
                     if (Mathf.Abs (playerDistance) > DespawnDistance && posPlayerY > tabObstacles[i].transform.position.y)
                     {
                         tabObstacles[i].SetActive(false);
@@ -89,17 +90,21 @@ public class SpawnObstacle : MonoBehaviour
             }
         }
 
-        //posCurve += Time.deltaTime;
-
-        timerSpawn += Time.deltaTime * tabSpeedSpawn[currentCurve] * globalSpeedSpawn;
-        if (timerSpawn > 1.0f)
+        spawnRate = tabSpeedSpawn[currentCurve] * globalSpeedSpawn;
+        posCurve += spawnRate * Time.deltaTime;
+        if (posCurve > 1.0f)
         {
-            SpawnMeteorite();
-            timerSpawn = 0.0f;
+            posCurve = 0.0f;
 
             currentCurve++;
             if (currentCurve > tabCurveSpeedSpawn.Length - 1)
                 currentCurve = 0;
+        }
+        spawnTimer -= tabCurveSpeedSpawn[currentCurve].Evaluate(posCurve) * tabQuatitySpawn[currentCurve] * globalQuantitySpawn;
+        if (spawnTimer < 0.0f)
+        {
+            spawnTimer = 1.0f;
+            SpawnMeteorite();
         }
     }
 
@@ -115,20 +120,22 @@ public class SpawnObstacle : MonoBehaviour
             if (obstacleActives[NumObstacleToSpawn] == false)
             {
                 check = true;
-                break;
             }
             i++;
             if (i > 50)
                 break;
         }
-        //playerDistance = (tabObstacles[NumObstacleToSpawn].transform.position - posPlayer).sqrMagnitude;
 
-        tabObstacles[NumObstacleToSpawn].transform.position = new Vector3(Random.Range(SpawnLimitesLeft, SpawnLimitesDownRight), Random.Range(posPlayerY + DistanceMiniPlayer, posPlayerY + DistanceMaxiPlayer));
-        //tabObstacles[NumObstacleToSpawn].transform.rotation = new Quaternion (Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f));
+        if (check == true)
+        {
+            tabObstacles[NumObstacleToSpawn].transform.position = new Vector3(
+                Random.Range(SpawnLimitesLeft, SpawnLimitesDownRight),
+                Random.Range(posPlayerY + DistanceMiniPlayer,
+                posPlayerY + DistanceMaxiPlayer));
 
-        tabObstacles[NumObstacleToSpawn].SetActive(true);
-        obstacleActives[NumObstacleToSpawn] = true;
 
-        //GameObject instance = Instantiate(tabObstacles[NumObstacleToSpawn], posSpawn, quatSpawn);
+            tabObstacles[NumObstacleToSpawn].SetActive(true);
+            obstacleActives[NumObstacleToSpawn] = true;
+        }
     }
 }
