@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 114426774646222958}
   - component: {fileID: 114845291564048312}
   - component: {fileID: 114016081668289534}
+  - component: {fileID: 114821328823626242}
   m_Layer: 0
   m_Name: Commun
   m_TagString: Untagged
@@ -73,7 +74,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e70097b92081f8b45bd1e0af1bdc9312, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startPlayerLife: 3
+  startPlayerLife: 5
   currentPlayerLife: 0
   currentPlayerNumber: 1
   Player01Dead: 0
@@ -93,7 +94,12 @@ MonoBehaviour:
   Victory: 0
   mvt: 0
   HightScore: 0
+  Score: 0
   playBong: 0
+  playExplosion: 0
+  playDing: 0
+  playBong02: 0
+  gameFinished: 0
 --- !u!114 &114123673962859670
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -106,6 +112,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tabObstacles:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -186,18 +203,18 @@ MonoBehaviour:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
-      inSlope: -1
-      outSlope: -1
+      value: 0
+      inSlope: 1
+      outSlope: 1
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
       time: 1
-      value: 0
-      inSlope: -1
-      outSlope: -1
+      value: 1
+      inSlope: 1
+      outSlope: 1
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
@@ -275,11 +292,11 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 0
   tabSpeedSpawn:
-  - 3
+  - 5
   - 4
   - 3
   - 2
-  - 0.01
+  - 1
   globalSpeedSpawn: 0.01
   tabQuatitySpawn:
   - 2
@@ -312,6 +329,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 904a81c1286f8bc4285ee3165eb721dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114821328823626242
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1944818218399264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52774eb4e08ee1f44a312b607e84fb4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_DriveableProperty:
+    m_Fields:
+    - m_Target: {fileID: 114123673962859670}
+      m_FieldPath: globalQuantitySpawn
+      m_RSKeyName: globalQuantitySpawn
+      m_Type: float
+    - m_Target: {fileID: 114123673962859670}
+      m_FieldPath: globalSpeedSpawn
+      m_RSKeyName: globalSpeedSpawn
+      m_Type: float
 --- !u!114 &114845291564048312
 MonoBehaviour:
   m_ObjectHideFlags: 1

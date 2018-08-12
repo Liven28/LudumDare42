@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Analytics;
 
 public class Restart : MonoBehaviour
 {
@@ -40,12 +41,18 @@ public class Restart : MonoBehaviour
     {
 		if (Input.GetKeyDown(KeyCode.R))
         {
+            if (Application.isEditor == false)
+                Analytics.CustomEvent("RestartWithR");
+
             RestartRound();
         }
 	}
 
     public void RestartRound()
     {
+        if (Application.isEditor == false)
+            Analytics.CustomEvent("RestartTotal");
+
         scrSave.FntSave();
 
         Player.transform.position = startPositionPlayer;

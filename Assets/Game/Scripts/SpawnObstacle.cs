@@ -40,10 +40,10 @@ public class SpawnObstacle : MonoBehaviour
     [SerializeField] private AnimationCurve[] tabCurveSpeedSpawn;
 
     [SerializeField] private float[] tabSpeedSpawn;
-    [SerializeField] private float globalSpeedSpawn;
+    public float globalSpeedSpawn;
 
     [SerializeField] private float[] tabQuatitySpawn;
-    [SerializeField] private float globalQuantitySpawn;
+    public float globalQuantitySpawn;
 
     private int NumObstacleToSpawn;
 
@@ -99,7 +99,7 @@ public class SpawnObstacle : MonoBehaviour
             if (currentCurve > tabCurveSpeedSpawn.Length - 1)
                 currentCurve = 0;
         }
-        spawnTimer -= tabCurveSpeedSpawn[currentCurve].Evaluate(posCurve) * tabQuatitySpawn[currentCurve] * globalQuantitySpawn;
+        spawnTimer -= tabCurveSpeedSpawn[currentCurve].Evaluate(posCurve) * tabQuatitySpawn[currentCurve] * globalQuantitySpawn * Time.deltaTime * 50.0f;
         if (spawnTimer < 0.0f)
         {
             spawnTimer = 1.0f;

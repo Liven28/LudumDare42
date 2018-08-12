@@ -29,6 +29,7 @@ public class Save : MonoBehaviour
         GameData dataSave = new GameData();
 
         dataSave.HightScore = scrCommunVariables.HightScore;
+        dataSave.gameFinished = scrCommunVariables.gameFinished;
 
         bf.Serialize(file, dataSave);
         file.Close();
@@ -48,10 +49,12 @@ public class Save : MonoBehaviour
             file2.Close();
 
             scrCommunVariables.HightScore = dataLoad.HightScore;
+            scrCommunVariables.gameFinished = dataLoad.gameFinished;
         }
         else
         {
-            scrCommunVariables.HightScore = 0;        
+            scrCommunVariables.HightScore = 0;
+            scrCommunVariables.gameFinished = false;
         }
     }
 
@@ -59,5 +62,6 @@ public class Save : MonoBehaviour
     class GameData
     {
         public int HightScore;
+        public bool gameFinished;
     }
 }

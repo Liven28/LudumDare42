@@ -40,6 +40,8 @@ public class CommunVariables : MonoBehaviour
     public bool playDing;
     public bool playBong02;
 
+    public bool gameFinished;
+
 
     void Awake ()
     {

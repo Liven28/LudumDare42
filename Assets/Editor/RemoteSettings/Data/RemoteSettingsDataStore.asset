@@ -11,4 +11,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0e893c667724814cbbae306609c3635, type: 3}
   m_Name: RemoteSettingsDataStore
   m_EditorClassIdentifier: 
-  rsKeyList: []
+  rsKeyList:
+  - key: globalSpeedSpawn
+    value: 0.010000
+    type: float
+  - key: globalQuantitySpawn
+    value: 0.020000
+    type: float
+  - key: EndY
+    value: 300.000000
+    type: float
