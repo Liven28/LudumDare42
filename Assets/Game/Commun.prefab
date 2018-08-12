@@ -73,6 +73,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e70097b92081f8b45bd1e0af1bdc9312, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startPlayerLife: 3
+  currentPlayerLife: 0
   currentPlayerNumber: 1
   Player01Dead: 0
   Player02Dead: 0
@@ -91,6 +93,7 @@ MonoBehaviour:
   Victory: 0
   mvt: 0
   HightScore: 0
+  playBong: 0
 --- !u!114 &114123673962859670
 MonoBehaviour:
   m_ObjectHideFlags: 1

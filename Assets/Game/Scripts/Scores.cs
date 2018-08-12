@@ -68,7 +68,7 @@ public class Scores : MonoBehaviour
         scoreToShow = Mathf.FloorToInt(preciseScore);
         TextValueScore.text = scoreToShow.ToString();
 
-
+        scrCommunVariables.Score = scoreToShow;
         if (scoreToShow > scrCommunVariables.HightScore)
         {
             scrCommunVariables.HightScore = scoreToShow;

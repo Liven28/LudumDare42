@@ -67,6 +67,8 @@ public class ControlPlayer : MonoBehaviour
 
     void Update()
     {
+        if(scrCommunVariables.gameWaitToRestart == false)
+        { 
         delta = Time.deltaTime * 50.0f;
         vect2Key = new Vector2(0, 0);
         if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.Q) || Input.GetKey(KeyCode.A))
@@ -86,35 +88,35 @@ public class ControlPlayer : MonoBehaviour
             vect2Key = new Vector2(vect2Key.x, vect2Key.y + vect2Down.y);
         }
 
-        if (vect2Key != Vector2.zero)
-        {
-            vect2Key = vect2Key.normalized;
-            vect2Key = new Vector2(vect2Key.x * boostSideMvt * Time.deltaTime * 50.0f, vect2Key.y);
-            rigid2d.AddForce(vect2Key * speed * delta);
-        }
-        else
-        {
-            clampedHorizontalPad = Input.GetAxis("Horizontal");
-
-            if (clampedHorizontalPad < deadZone && clampedHorizontalPad > 0.0f)
+            if (vect2Key != Vector2.zero)
             {
-                clampedHorizontalPad = 0.0f;
+                vect2Key = vect2Key.normalized;
+                vect2Key = new Vector2(vect2Key.x * boostSideMvt * Time.deltaTime * 50.0f, vect2Key.y);
+                rigid2d.AddForce(vect2Key * speed * delta);
             }
-            else if (clampedHorizontalPad > -deadZone && clampedHorizontalPad < 0.0f)
+            else
             {
-                clampedHorizontalPad = 0.0f;
-            }
+                clampedHorizontalPad = Input.GetAxis("Horizontal");
+
+                if (clampedHorizontalPad < deadZone && clampedHorizontalPad > 0.0f)
+                {
+                    clampedHorizontalPad = 0.0f;
+                }
+                else if (clampedHorizontalPad > -deadZone && clampedHorizontalPad < 0.0f)
+                {
+                    clampedHorizontalPad = 0.0f;
+                }
 
 
-            vect2Pad = new Vector2(clampedHorizontalPad, Input.GetAxis("Vertical"));
-            if (vect2Pad != Vector2.zero)
-            {
-                vect2Pad = vect2Pad.normalized;
-                vect2Pad = new Vector2(vect2Pad.x * boostSideMvt * Time.deltaTime * 50.0f, vect2Pad.y);
-                vect2Pad = new Vector2(vect2Pad.x * boostSideMvt * Time.deltaTime * 50.0f, vect2Pad.y);
-                rigid2d.AddForce(vect2Pad * speed * delta);
+                vect2Pad = new Vector2(clampedHorizontalPad, Input.GetAxis("Vertical"));
+                if (vect2Pad != Vector2.zero)
+                {
+                    vect2Pad = vect2Pad.normalized;
+                    vect2Pad = new Vector2(vect2Pad.x * boostSideMvt * Time.deltaTime * 50.0f, vect2Pad.y);
+                    vect2Pad = new Vector2(vect2Pad.x * boostSideMvt * Time.deltaTime * 50.0f, vect2Pad.y);
+                    rigid2d.AddForce(vect2Pad * speed * delta);
+                }
             }
-            
         }
     }
 }

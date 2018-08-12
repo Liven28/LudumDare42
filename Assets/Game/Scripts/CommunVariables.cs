@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class CommunVariables : MonoBehaviour
 {
+    public int startPlayerLife;
+    public int currentPlayerLife;
+
     public int currentPlayerNumber;
 
     public bool Player01Dead;
@@ -30,14 +33,17 @@ public class CommunVariables : MonoBehaviour
     public bool mvt;
 
     public int HightScore;
+    public int Score;
 
     public bool playBong;
 
 
+
     void Awake ()
     {
-		
-	}
+        currentPlayerLife = startPlayerLife;
+
+    }
 	
 	void Update ()
     {
