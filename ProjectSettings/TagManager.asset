@@ -11,6 +11,7 @@ TagManager:
   - Wall04
   - Wall
   - Trigger
+  - Eye
   layers:
   - Default
   - TransparentFX
