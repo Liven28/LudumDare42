@@ -52,7 +52,6 @@ public class SpawnObstacle : MonoBehaviour
     private float spawnRate;
     private float spawnTimer;
 
-
     void Awake ()
     {
         Player = GameObject.Find("Player");
