@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class SpawnObstacle : MonoBehaviour
 {
-    [SerializeField] private GameObject[] tabObstacles;
-    [SerializeField] private bool[] obstacleActives;
+    public GameObject[] tabObstacles;
+    public bool[] obstacleActives;
 
     [SerializeField] private float sizeMini;
     [SerializeField] private float sizeMaxi;
@@ -47,8 +47,8 @@ public class SpawnObstacle : MonoBehaviour
 
     private int NumObstacleToSpawn;
 
-    private int currentCurve;
-    private float posCurve;
+    public int currentCurve;
+    public float posCurve;
     private float spawnRate;
     private float spawnTimer;
 

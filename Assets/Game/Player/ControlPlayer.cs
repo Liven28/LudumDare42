@@ -32,6 +32,7 @@ public class ControlPlayer : MonoBehaviour
     private Vector2 vect2Key = new Vector2(0, 0);
 
     [SerializeField] private float deadZone;
+    private float clampedHorizontalPad;
 
     private bool gravityDesactivated;
 
@@ -49,6 +50,8 @@ public class ControlPlayer : MonoBehaviour
     private bool playerActivated;
 
     private bool onShot;
+
+    [SerializeField] private float boostSideMvt;
 
     void Awake()
     {
@@ -86,14 +89,29 @@ public class ControlPlayer : MonoBehaviour
         if (vect2Key != Vector2.zero)
         {
             vect2Key = vect2Key.normalized;
+            vect2Key = new Vector2(vect2Key.x * boostSideMvt * Time.deltaTime * 50.0f, vect2Key.y);
             rigid2d.AddForce(vect2Key * speed * delta);
         }
         else
         {
-            vect2Pad = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+            clampedHorizontalPad = Input.GetAxis("Horizontal");
+
+            if (clampedHorizontalPad < deadZone && clampedHorizontalPad > 0.0f)
+            {
+                clampedHorizontalPad = 0.0f;
+            }
+            else if (clampedHorizontalPad > -deadZone && clampedHorizontalPad < 0.0f)
+            {
+                clampedHorizontalPad = 0.0f;
+            }
+
+
+            vect2Pad = new Vector2(clampedHorizontalPad, Input.GetAxis("Vertical"));
             if (vect2Pad != Vector2.zero)
             {
                 vect2Pad = vect2Pad.normalized;
+                vect2Pad = new Vector2(vect2Pad.x * boostSideMvt * Time.deltaTime * 50.0f, vect2Pad.y);
+                vect2Pad = new Vector2(vect2Pad.x * boostSideMvt * Time.deltaTime * 50.0f, vect2Pad.y);
                 rigid2d.AddForce(vect2Pad * speed * delta);
             }
             
