@@ -12,20 +12,20 @@ MonoBehaviour:
   m_Name: UnityBuildSettings
   m_EditorClassIdentifier: 
   _basicSettings:
-    baseBuildFolder: F:\AA_Builds_AA\NoMoreSpaceInSpace
+    baseBuildFolder: F:\AA_Builds_AA\LudumDare42
     buildPath: 
     openFolderPostBuild: 0
   _productParameters:
     buildCounter: 1
-    lastGeneratedVersion: 1.0.$BUILS
-    version: 1.0.$BUILS
+    lastGeneratedVersion: 1.0.1
+    version: 1.0.$BUILD
     autoGenerate: 1
   _releaseTypeList:
     releaseTypes:
     - typeName: NewReleaseType
       bundleIndentifier: 
       companyName: 
-      productName: NoMoreSpaceInSpace
+      productName: LudumDare42
       developmentBuild: 0
       allowDebugging: 0
       enableHeadlessMode: 0
@@ -82,8 +82,8 @@ MonoBehaviour:
     buildActions: []
   _postBuildActions:
     buildActions:
-    - {fileID: 114487564372231480}
---- !u!114 &114487564372231480
+    - {fileID: 114378335565649374}
+--- !u!114 &114378335565649374
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -103,7 +103,7 @@ MonoBehaviour:
     clauses: []
   pathToButlerExe: c:\Users\William\AppData\Roaming\itch\bin\butler.exe
   nameOfItchUser: Liven
-  nameOfItchGame: nomorespaceinspace
+  nameOfItchGame: LudumDare42
   useGeneratedBuildVersion: 1
   showUploadProgress: 1
   itchChannelOverride: 

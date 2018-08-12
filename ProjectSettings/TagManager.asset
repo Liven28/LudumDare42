@@ -3,7 +3,14 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Trash
+  - Wall01
+  - Wall02
+  - Wall03
+  - Wall04
+  - Wall
+  - Trigger
   layers:
   - Default
   - TransparentFX
@@ -13,12 +20,12 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Player
+  - Trash
+  - Wall
+  - Trigger
+  - Eye
+  - EyesContour
   - 
   - 
   - 
