@@ -515,7 +515,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "you heard this curious sound?\r\nthe answer is on top"
+  m_Text: "you heard this curious sound?\r\nthe answer is far on top"
 --- !u!114 &114295600310686052
 MonoBehaviour:
   m_ObjectHideFlags: 1
