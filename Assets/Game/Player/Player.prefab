@@ -649,6 +649,7 @@ MonoBehaviour:
   connectedToWall02: 0
   connectedToWall03: 0
   connectedToWall04: 0
+  ActiveScript: 0
 --- !u!114 &114921718007020990
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -660,7 +661,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 039ca7749b4f082489684d2052a81a6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 5
   speedUp: 1
   speedDown: 1
   speedSides: 1
@@ -668,9 +669,10 @@ MonoBehaviour:
   timerDownAction: 0.2
   timerLeftAction: 0.2
   timerRightAction: 0.2
-  deadZone: 0
+  deadZone: 0.1
   activeColor: {r: 1, g: 1, b: 1, a: 1}
   inactiveColor: {r: 1, g: 1, b: 1, a: 1}
+  boostSideMvt: 2
 --- !u!114 &114986378575529108
 MonoBehaviour:
   m_ObjectHideFlags: 1

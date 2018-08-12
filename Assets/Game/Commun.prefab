@@ -58,9 +58,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TextValueHightScore: {fileID: 0}
   TextValueScore: {fileID: 0}
+  preciseScore: 0
   pointPerDistance: 1
   maxiVelocity: 10
-  VelocityMultipier: 5
+  VelocityMultipier: 10
 --- !u!114 &114094658437407824
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -102,47 +103,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tabObstacles:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
