@@ -91,7 +91,7 @@ public class ControlPlayer : MonoBehaviour
             if (vect2Key != Vector2.zero)
             {
                 vect2Key = vect2Key.normalized;
-                vect2Key = new Vector2(vect2Key.x * boostSideMvt * Time.deltaTime * 50.0f, vect2Key.y);
+                vect2Key = new Vector2(vect2Key.x * boostSideMvt, vect2Key.y);
                 rigid2d.AddForce(vect2Key * speed * delta);
             }
             else
