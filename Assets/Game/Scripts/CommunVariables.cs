@@ -36,7 +36,9 @@ public class CommunVariables : MonoBehaviour
     public int Score;
 
     public bool playBong;
-
+    public bool playExplosion;
+    public bool playDing;
+    public bool playBong02;
 
 
     void Awake ()

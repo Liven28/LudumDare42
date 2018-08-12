@@ -80,7 +80,12 @@ public class BonusManagement : MonoBehaviour
             startFadeSprite = true;
             scrParticleSystem.Emit(brustDespawn);
 
+            scrCommunVariables.playDing = true;
             scrCommunVariables.currentPlayerLife++;
+        }
+        else if (collision.gameObject.tag == "Player")
+        {
+            scrCommunVariables.playBong02 = true;
         }
     }
 }

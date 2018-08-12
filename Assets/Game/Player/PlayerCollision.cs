@@ -38,19 +38,32 @@ public class PlayerCollision : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision2D)
     {
-        if (collision2D.gameObject.tag != "Eye")
-            scrCommunVariables.playBong = true;
-
-        if (collision2D.gameObject.tag == "Trash")
+        if (collision2D.gameObject.tag == "Bonus")
+        {
+            
+        }
+        else if (collision2D.gameObject.tag == "Trash")
         {
             if (collisionCount == 0.0f)
             {
+                if (scrCommunVariables.currentPlayerLife == 1)
+                {
+                    scrCommunVariables.playExplosion = true;
+                }
+                else
+                {
+                    scrCommunVariables.playBong = true;
+                }
                 scrCommunVariables.currentPlayerLife--;
                 if (scrCommunVariables.currentPlayerLife < 0)
                     scrCommunVariables.currentPlayerLife = 0;
+
+
                 collisionCount = collisionDelay;
                 systPart.Emit(explosionIntensity);
             }
         }
+        else if (collision2D.gameObject.tag != "Eye" && collision2D.gameObject.tag != "Bonus")
+            scrCommunVariables.playBong02 = true;
     }
 }
